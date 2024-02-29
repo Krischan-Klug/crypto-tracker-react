@@ -34,7 +34,7 @@ function App() {
       console.log("cleanup");
       clearInterval(interval1);
     };
-  }, []);
+  });
 
   return (
     <>
