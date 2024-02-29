@@ -40,7 +40,12 @@ function App() {
   });
 
   if (isLoading) {
-    return <h3>Stealing you crypto...</h3>;
+    return (
+      <>
+        <br></br>
+        <h3 style={{ textAlign: "center" }}>Stealing you crypto...</h3>;
+      </>
+    );
   }
 
   return (
