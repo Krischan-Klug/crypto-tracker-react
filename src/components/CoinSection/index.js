@@ -8,15 +8,24 @@ function CoinSection({ coins }) {
   }
   return (
     <>
-      <div style={{ textAlign: "center" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
         <h2> ALL Coins</h2>
-        <button onClick={toggleSection}>Toggle Coins</button>
+        <button
+          style={{ height: "40px", margin: "10px" }}
+          onClick={toggleSection}
+        >
+          Toggle Coins
+        </button>
       </div>
-      <br></br>
       {isSectionOpen && (
         <section
           style={{
-            margin: "1rem",
             display: "flex",
             alignContent: "center",
             justifyContent: "center",
@@ -26,20 +35,17 @@ function CoinSection({ coins }) {
           {coins.map((coin) => (
             <article
               style={{
-                marginLeft: "10px",
-                marginRight: "10px",
-                marginTop: "2px",
-                display: "flex",
-                alignContent: "center",
-                justifyContent: "center",
-                flexDirection: "column",
+                margin: "10px",
+                width: "100px",
                 border: "1px solid black",
               }}
               key={coin.symbol}
             >
-              <h3>{coin.symbol}</h3>
-              <p>Price:</p>
-              <p>{coin.lastPrice}</p>
+              <h3 style={{ textAlign: "center" }}>{coin.symbol}</h3>
+              <h4 style={{ textAlign: "center" }}>Price:</h4>
+              <h5 style={{ textAlign: "center" }}>
+                {coin.lastPrice.toString().slice(0, 10)}
+              </h5>
             </article>
           ))}
         </section>

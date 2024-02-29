@@ -21,16 +21,16 @@ function App() {
       return data;
     }
 
-    async function dataTest() {
+    async function dataLoad() {
       const allCoins = await getData();
       setCoins(allCoins);
       setIsLoading(false);
     }
 
     const interval1 = setInterval(() => {
-      dataTest();
+      dataLoad();
       console.log(coins);
-      console.log("interval start");
+      console.log("refreshed coins!");
     }, 5000);
 
     return () => {
@@ -43,7 +43,10 @@ function App() {
     return (
       <>
         <br></br>
-        <h3 style={{ textAlign: "center" }}>Stealing you crypto...</h3>;
+        <h3 style={{ textAlign: "center", marginTop: "50%" }}>
+          Stealing you crypto...
+        </h3>
+        ;
       </>
     );
   }
