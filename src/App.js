@@ -9,6 +9,8 @@ import Footer from "./components/Footer";
 function App() {
   const [coins, setCoins] = useState([]);
 
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     async function getData() {
       const response = await fetch(
@@ -22,6 +24,7 @@ function App() {
     async function dataTest() {
       const allCoins = await getData();
       setCoins(allCoins);
+      setIsLoading(false);
     }
 
     const interval1 = setInterval(() => {
@@ -35,6 +38,10 @@ function App() {
       clearInterval(interval1);
     };
   });
+
+  if (isLoading) {
+    return <h3>Stealing you crypto...</h3>;
+  }
 
   return (
     <>
