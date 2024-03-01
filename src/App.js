@@ -8,27 +8,21 @@ import Footer from "./components/Footer";
 
 function App() {
   const [coins, setCoins] = useState([]);
-
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    //Get data
     async function getData() {
       const response = await fetch(
         "https://api4.binance.com/api/v3/ticker/24hr"
       );
       const data = await response.json();
-
-      return data;
-    }
-
-    async function dataLoad() {
-      const allCoins = await getData();
-      setCoins(allCoins);
+      setCoins(data);
       setIsLoading(false);
     }
-
+    //Refresh data every 5sec
     const interval1 = setInterval(() => {
-      dataLoad();
+      getData();
       console.log(coins);
       console.log("refreshed coins!");
     }, 5000);
@@ -38,7 +32,7 @@ function App() {
       clearInterval(interval1);
     };
   });
-
+  //Loading screen
   if (isLoading) {
     return (
       <>
