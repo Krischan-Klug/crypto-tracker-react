@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./CoinSection.css";
 
 function CoinSection({ coins }) {
   const [isSectionOpen, setIsSectionOpen] = useState(false);
@@ -33,14 +34,7 @@ function CoinSection({ coins }) {
           }}
         >
           {coins.map((coin) => (
-            <article
-              style={{
-                margin: "10px",
-                width: "100px",
-                border: "1px solid black",
-              }}
-              key={coin.symbol}
-            >
+            <article className="coinArticle" key={coin.symbol}>
               <h3 style={{ textAlign: "center" }}>{coin.symbol}</h3>
               <h4 style={{ textAlign: "center" }}>Price:</h4>
               <h5 style={{ textAlign: "center" }}>
