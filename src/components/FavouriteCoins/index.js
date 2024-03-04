@@ -1,7 +1,6 @@
 import { useState } from "react";
-import "./CoinSection.css";
 
-function CoinSection({ coins, onToggleFavourite }) {
+function FavouriteCoins({ favouriteCoins, onToggleFavourite }) {
   const [isSectionOpen, setIsSectionOpen] = useState(false);
 
   function toggleSection() {
@@ -17,24 +16,12 @@ function CoinSection({ coins, onToggleFavourite }) {
           alignItems: "center",
         }}
       >
-        <h2> ALL Coins</h2>
-        <button
-          style={{ height: "40px", margin: "10px" }}
-          onClick={() => toggleSection()}
-        >
-          Toggle Coins
-        </button>
+        <h2>Favourite Coins</h2>
+        <button onClick={() => toggleSection()}>Toggle Coins</button>
       </div>
       {isSectionOpen && (
-        <section
-          style={{
-            display: "flex",
-            alignContent: "center",
-            justifyContent: "center",
-            flexWrap: "wrap",
-          }}
-        >
-          {coins.map((coin) => (
+        <section>
+          {favouriteCoins.map((coin) => (
             <article
               className="coinArticle"
               key={coin.symbol}
@@ -53,4 +40,4 @@ function CoinSection({ coins, onToggleFavourite }) {
   );
 }
 
-export default CoinSection;
+export default FavouriteCoins;

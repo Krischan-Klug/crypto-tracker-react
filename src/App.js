@@ -7,8 +7,9 @@ import Main from "./components/Main";
 import Footer from "./components/Footer";
 
 function App() {
-  const [coins, setCoins] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+
+  const [coins, setCoins] = useState([]);
 
   useEffect(() => {
     //Get data
@@ -23,8 +24,7 @@ function App() {
     //Refresh data every 5sec
     const interval1 = setInterval(() => {
       getData();
-      console.log(coins);
-      console.log("refreshed coins!");
+      //console.log("REFRESHED COINS:", coins);
     }, 5000);
 
     return () => {
@@ -37,8 +37,8 @@ function App() {
     return (
       <>
         <br></br>
-        <h3 style={{ textAlign: "center", marginTop: "50%" }}>
-          Stealing you crypto...
+        <h3 style={{ textAlign: "center", height: "100%" }}>
+          Stealing your crypto...
         </h3>
         ;
       </>
